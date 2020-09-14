@@ -10,27 +10,27 @@ data.forEach(function(ufoReports) {
   });
 
 // // Step 3:  Use `Object.entries` to console.log each ufo report value
-data.forEach(function(ufoReports) {
-    console.log(ufoReports);
-    var row = tbody.append("tr");
+// data.forEach(function(ufoReports) {
+//     console.log(ufoReports);
+//     var row = tbody.append("tr");
   
-    Object.entries(ufoReports).forEach(function([key, value]) {
-      console.log(key, value);
-  });
-});
+//     Object.entries(ufoReports).forEach(function([key, value]) {
+//       console.log(key, value);
+//   });
+// });
 
 // // Step 4: Use d3 to append 1 cell per ufo report value (Date, City, State, Country, Shape, Duration, Comments)
-data.forEach(function(ufoReports) {
-    console.log(ufoReports);
-    var row = tbody.append("tr");
+// data.forEach(function(ufoReports) {
+//     console.log(ufoReports);
+//     var row = tbody.append("tr");
   
-    Object.entries(ufoReports).forEach(function([key, value]) {
-      console.log(key, value);
-      // Append a cell to the row for each value
-      // in the weather report object
-      var cell = row.append("td");
-  });
-});
+//     Object.entries(ufoReports).forEach(function([key, value]) {
+//       console.log(key, value);
+//       // Append a cell to the row for each value
+//       // in the weather report object
+//       var cell = row.append("td");
+//   });
+// });
 
 // // Step 5: Use d3 to update each cell's text with
 // // ufo report values (Date, City, State, Country, Shape, Duration, Comments)
