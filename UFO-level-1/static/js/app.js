@@ -1,7 +1,8 @@
-// from data.js
+// from data.js -g
+
 var tableData = data;
 
-// Get a reference to the table body
+// Get a reference to the table body -r
 var tbody = d3.select("tbody");
 
 // // Step 1: Loop Through `data` and console.log each ufo report object
@@ -33,7 +34,7 @@ data.forEach(function(ufoReports) {
 // });
 
 // // Step 5: Use d3 to update each cell's text with
-// // ufo report values (Date, City, State, Country, Shape, Duration, Comments)
+// // ufo report values (Date, City, State, Country, Shape, Duration, Comments) -a
 data.forEach(function(ufoReports) {
     console.log(ufoReports);
     var row = tbody.append("tr");
@@ -57,7 +58,7 @@ button.on("click", runEnter);
 form.on("submit",runEnter);
 
 
-// Complete the event handler function for the form
+// Complete the event handler function for the form -n
 function runEnter() {
 
   // Prevent the page from refreshing
@@ -79,7 +80,7 @@ function runEnter() {
 //   console.log(tableData.durationMinutes);
 //   console.log(tableData.comments);
 
-  var filteredData = data.filter(data => data.datetime === inputValue);
+  var filteredData = data.filter(data => data.datetime === inputValue); // -t
   // Get a reference to the table body
   var tbody = d3.select("tbody");
 
