@@ -79,8 +79,22 @@ function runEnter() {
 //   console.log(tableData.durationMinutes);
 //   console.log(tableData.comments);
 
-  var filteredData = tableData.filter(tableData => tableData.datetime === inputValue);
+  var filteredData = data.filter(data => data.datetime === inputValue);
+  // Get a reference to the table body
+  var tbody = d3.select("tbody");
 
   console.log(`The filtered data is: ${filteredData}`);
   console.log(filteredData);
+
+  filteredData.forEach(function(ufoReports) {
+    console.log(ufoReports);
+    var row = tbody.append("tr");
+    Object.entries(ufoReports).forEach(function([key, value]) {
+      console.log(key, value);
+      // Append a cell to the row for each value
+      // in the ufo report object
+      var cell = row.append("td");
+      cell.text(value);
+    });
+  });
 };
