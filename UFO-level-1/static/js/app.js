@@ -5,35 +5,14 @@ var tableData = data;
 // Get a reference to the table body -r
 var tbody = d3.select("tbody");
 
-// // Step 1: Loop Through `data` and console.log each ufo report object
+// // Loop Through `data` and console.log each ufo report object
 data.forEach(function(ufoReports) {
     console.log(ufoReports);
   });
 
-// // Step 3:  Use `Object.entries` to console.log each ufo report value
-// data.forEach(function(ufoReports) {
-//     console.log(ufoReports);
-//     var row = tbody.append("tr");
-  
-//     Object.entries(ufoReports).forEach(function([key, value]) {
-//       console.log(key, value);
-//   });
-// });
 
-// // Step 4: Use d3 to append 1 cell per ufo report value (Date, City, State, Country, Shape, Duration, Comments)
-// data.forEach(function(ufoReports) {
-//     console.log(ufoReports);
-//     var row = tbody.append("tr");
-  
-//     Object.entries(ufoReports).forEach(function([key, value]) {
-//       console.log(key, value);
-//       // Append a cell to the row for each value
-//       // in the weather report object
-//       var cell = row.append("td");
-//   });
-// });
 
-// // Step 5: Use d3 to update each cell's text with
+// // Use d3 to update each cell's text with
 // // ufo report values (Date, City, State, Country, Shape, Duration, Comments) -a
 data.forEach(function(ufoReports) {
     console.log(ufoReports);
@@ -63,7 +42,9 @@ function runEnter() {
 
   // Prevent the page from refreshing
   d3.event.preventDefault();
-  
+  tbody.html("");
+  rows.exit().remove();
+  cells.exit().remove();
   // Select the input element and get the raw HTML node
   var inputElement = d3.select("#datetime");
 
@@ -82,15 +63,17 @@ function runEnter() {
 
   var filteredData = data.filter(data => data.datetime === inputValue); // -t
   // Get a reference to the table body
+  var filteredData = data;
+
   var tbody = d3.select("tbody");
 
-  console.log(`The filtered data is: ${filteredData}`);
-  console.log(filteredData);
+  console.log(`The filtered data is: ${data}`);
+  console.log(data);
 
-  filteredData.forEach(function(ufoReports) {
-    console.log(ufoReports);
+  data.forEach(function(filterReports) {
+    console.log(filterReports);
     var row = tbody.append("tr");
-    Object.entries(ufoReports).forEach(function([key, value]) {
+    Object.entries(filterReports).forEach(function([key, value]) {
       console.log(key, value);
       // Append a cell to the row for each value
       // in the ufo report object
