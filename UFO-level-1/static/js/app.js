@@ -1,4 +1,4 @@
-// from data.js -g
+// from data.js 
 
 var tableData = data;
 
@@ -31,8 +31,26 @@ var button = d3.select("#filter-btn");
 var form = d3.select("#form");
 
 // Create event handlers 
-button.on("click", runEnter);
-form.on("submit",runEnter);
+//button.on("click", deleteRows, runEnter);
+//form.on("submit", deleteRows, runEnter);
+
+button.on("click", function(d) {
+  deleteRows(d);
+  runEnter(d);
+});
+
+form.on("submit", function(d) {
+  deleteRows(d);
+  runEnter(d);
+});
+
+// Delete rows function
+function deleteRows() {
+  // Prevent the page from refreshing
+  d3.event.preventDefault();
+  // Clear table
+  d3.selectAll(".tb").remove();
+}
 
 
 // Complete the event handler function for the form -n
@@ -42,12 +60,13 @@ function runEnter() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
   
+  
+  // from data.js -g
 
-  // Clear table
-  d3.selectAll(".tb").remove();
-  
-  
-  //tbody.html("");
+  // var tableData = data;
+
+  // Get a reference to the table body -r
+  var tbody = d3.select("tbody");
   
   // Select the input element and get the raw HTML node
   var inputElement = d3.select("#datetime");
@@ -58,16 +77,20 @@ function runEnter() {
   // Log/Test filter result
   console.log(`The date choosen is ${inputValue}`);
 
-  var filteredData = data.filter(data => data.datetime === inputValue); // -t
+
+  // Get a reference to the table body -r
+  var tbody = d3.select("tbody");
+
+  var fData = data.filter(data => data.datetime === inputValue); // -t
   // Get a reference to the table body
-  var filteredData = data;
+  var filteredData = fData;
 
   var tbody = d3.select("tbody");
 
-  console.log(`The filtered data is: ${data}`);
+  console.log(`The filtered data is: ${filteredData}`);
   console.log(data);
 
-  data.forEach(function(filterReports) {
+  filteredData.forEach(function(filterReports) {
     console.log(filterReports);
     var row = tbody.append("tr");
     Object.entries(filterReports).forEach(function([key, value]) {
