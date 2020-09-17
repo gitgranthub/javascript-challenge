@@ -3,7 +3,7 @@
 var tableData = data;
 
 // Get a reference to the table body -r
-var tbody = d3.select("tbody");
+var tbody = d3.select(".tb");
 
 // // Loop Through `data` and console.log each ufo report object
 data.forEach(function(ufoReports) {
@@ -21,28 +21,12 @@ data.forEach(function(ufoReports) {
     // in the ufo report object
     var cell = row.append("td");
     cell.text(value);
-});
-});
-
-// Select the button
-var button = d3.select("#filter-btn");
-
-// Select the form
-var form = d3.select("#form");
-
-// Create event handlers 
-//button.on("click", deleteRows, runEnter);
-//form.on("submit", deleteRows, runEnter);
-
-button.on("click", function(d) {
-  deleteRows(d);
-  runEnter(d);
+  });
 });
 
-form.on("submit", function(d) {
-  deleteRows(d);
-  runEnter(d);
-});
+
+
+
 
 // Delete rows function
 function deleteRows() {
@@ -60,14 +44,6 @@ function runEnter() {
   // Prevent the page from refreshing
   d3.event.preventDefault();
   
-  
-  // from data.js -g
-
-  // var tableData = data;
-
-  // Get a reference to the table body -r
-  var tbody = d3.select("tbody");
-  
   // Select the input element and get the raw HTML node
   var inputElement = d3.select("#datetime");
 
@@ -79,16 +55,15 @@ function runEnter() {
 
 
   // Get a reference to the table body -r
-  var tbody = d3.select("tbody");
+  var tbody = d3.select(".tb");
 
   var fData = data.filter(data => data.datetime === inputValue); // -t
   // Get a reference to the table body
   var filteredData = fData;
 
-  var tbody = d3.select("tbody");
-
   console.log(`The filtered data is: ${filteredData}`);
   console.log(data);
+
 
   filteredData.forEach(function(filterReports) {
     console.log(filterReports);
@@ -102,3 +77,20 @@ function runEnter() {
     });
   });
 };
+
+// Create event handlers 
+// Select the button
+var button = d3.select("#filter-btn");
+
+// Select the form
+var form = d3.select("#form");
+
+button.on("click", function(d) {
+  deleteRows(d);
+  runEnter(d);
+});
+
+form.on("submit", function(d) {
+  deleteRows(d);
+  runEnter(d);
+});
