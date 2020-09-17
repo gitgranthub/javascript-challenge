@@ -44,17 +44,7 @@ function runEnter() {
   
 
   // Clear table
-  var table = d3.select("#ufo-table");
-  //var tbody = d3.select("#ufo-table");
-  //or use :  var table = document.all.tableid;
-  function DeleteRows() {
-    var rowCount = ufo-table.rows.length;
-    for (var i = rowCount - 1; i > 0; i--) {
-      ufo-table.deleteRow(i);
-    }
-  }
-
-  
+  d3.selectAll(".tb").remove();
   
   
   //tbody.html("");
