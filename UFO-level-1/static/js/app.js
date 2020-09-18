@@ -24,6 +24,8 @@ data.forEach(function(ufoReports) {
   });
 });
 
+
+// Filtering By Date and Clicking Filter Button
 // Create event handlers 
 // Select the button
 var button = d3.select("#filter-btn");
@@ -61,14 +63,31 @@ button.on("click", function() {
   });
 });
 
+// Reset Form
+var button2 = d3.select("#reset-btn");
+
+button2.on("click", function() {
+
+
+  // Clear table before populating with Filtered Data
+  tbody.html("");
+
+  data.forEach(function(ufoReports) {
+    console.log(ufoReports);
+    var row = tbody.append("tr");
+    Object.entries(ufoReports).forEach(function([key, value]) {
+      console.log(key, value);
+      // Append a cell to the row for each value
+      // in the ufo report object
+      var cell = row.append("td");
+      cell.text(value);
+    });
+  });
+});
+
 // Select the form
 
-var form = d3.select("#form");
-//keydown.enter(form, runEnter); 
-// form.addEventListener('keydown', (event) => {
-//   const keyName = event.key;
-
-//   if (keyName === 'Return') {
+//var form = d3.select("#form");
 
 document.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
