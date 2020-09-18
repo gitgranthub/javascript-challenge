@@ -1,8 +1,6 @@
-// from data.js 
-
 var tableData = data;
 
-// Get a reference to the table body -r
+// Get a reference to the table body -g
 var tbody = d3.select(".tb");
 
 // // Loop Through `data` and console.log each ufo report object
@@ -11,7 +9,7 @@ data.forEach(function(ufoReports) {
   });
 
 // // Use d3 to update each cell's text with
-// // ufo report values (Date, City, State, Country, Shape, Duration, Comments) -a
+// // ufo report values (Date, City, State, Country, Shape, Duration, Comments) -c
 data.forEach(function(ufoReports) {
   console.log(ufoReports);
   var row = tbody.append("tr");
@@ -63,7 +61,7 @@ button.on("click", function() {
   });
 });
 
-// Reset Form
+// Reset Form **** BUTTON CODE
 var button2 = d3.select("#reset-btn");
 
 button2.on("click", function() {
@@ -85,13 +83,14 @@ button2.on("click", function() {
   });
 });
 
-// Select the form
 
-//var form = d3.select("#form");
+// KEYPRESS INSTEAD OF CLICK BUTTON SUMBIT CODE
 
 document.addEventListener('keypress', function (e) {
   if (e.key === 'Enter') {
 
+
+    // TRYING TO STOP 404 ERROR on keypress ****
     res.sendFile('../index.html');
     // Clear table before populating with Filtered Data
     tbody.html("");
@@ -124,43 +123,3 @@ document.addEventListener('keypress', function (e) {
    });
   }
 });
-// Complete the event handler function for the form -n
-// function runEnter() {
-  
-
-//   // Prevent the page from refreshing
-//   d3.event.preventDefault();
-  
-//   // Select the input element and get the raw HTML node
-//   var inputElement = d3.select("#datetime");
-
-//   // Get the value property of the input element
-//   var inputValue = inputElement.property("value");
-
-//   // Log/Test filter result
-//   console.log(`The date choosen is ${inputValue}`);
-
-
-//   // Get a reference to the table body -r
-//   var tbody = d3.select(".tb");
-
-//   var fData = data.filter(data => data.datetime === inputValue); // -t
-//   // Get a reference to the table body
-//   var filteredData = fData;
-
-//   console.log(`The filtered data is: ${filteredData}`);
-//   console.log(data);
-
-
-//   filteredData.forEach(function(filterReports) {
-//     console.log(filterReports);
-//     var row = tbody.append("tr");
-//     Object.entries(filterReports).forEach(function([key, value]) {
-//       console.log(key, value);
-//       // Append a cell to the row for each value
-//       // in the ufo report object
-//       var cell = row.append("td");
-//       cell.text(value);
-//     });
-//   });
-// }
