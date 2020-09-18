@@ -57,20 +57,27 @@ button.on("click", function() {
       // Append a cell to the row for each value
       var cell = row.append("td");
       cell.text(value);
+    });
   });
-});
 });
 
 // Select the form
 
 var form = d3.select("#form");
-var returnForm = from.selectAll(null)
-form.on("keypress", function() {
-  if(d3.event.keyCode === 13){
-    console.log("you pressed enter!")
+//keydown.enter(form, runEnter); 
+// form.addEventListener('keydown', (event) => {
+//   const keyName = event.key;
+
+//   if (keyName === 'Return') {
+
+document.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+
+    res.sendFile('../index.html');
     // Clear table before populating with Filtered Data
     tbody.html("");
-
+    // Prevent the page from refreshing
+    d3.event.preventDefault();
     // Select the input date get the raw HTML nodes
     var inputElement = d3.select("#datetime");
     // Get the value property of the input date, state, shape
@@ -85,27 +92,20 @@ form.on("keypress", function() {
 
     filteredData.forEach(function(filterReports) {
 
-      console.log(filterReports);
-      // Append one table row `tr` for each UFO Sighting object
-      var row = tbody.append("tr");
-      // Use `Object.entries` to console.log each UFO Sighting value
-      Object.entries(filterReports).forEach(function([key, value]) {
-          console.log(key, value);
-          // Append a cell to the row for each value
-          var cell = row.append("td");
-          cell.text(value);
-    
+    console.log(filterReports);
+    // Append one table row `tr` for each UFO Sighting object
+    var row = tbody.append("tr");
+    // Use `Object.entries` to console.log each UFO Sighting value
+    Object.entries(filterReports).forEach(function([key, value]) {
+        console.log(key, value);
+        // Append a cell to the row for each value
+        var cell = row.append("td");
+        cell.text(value);
       });
-    });
-    }
-  });
-
-  
-  
-
-
-
-// // Complete the event handler function for the form -n
+   });
+  }
+});
+// Complete the event handler function for the form -n
 // function runEnter() {
   
 
