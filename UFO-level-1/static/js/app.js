@@ -1,5 +1,3 @@
-var data = data;
-
 // Get a reference to the table body -g
 var tbody = d3.select(".tb");
 
