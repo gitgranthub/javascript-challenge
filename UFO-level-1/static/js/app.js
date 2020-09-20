@@ -43,7 +43,7 @@ button2.on("click", resetEnter);
 // Modified by EJW - named function and prevent default
 function runEnter() {
   // Added by EJW
-  //d3.event.preventDefault();
+  d3.event.preventDefault();
 
   // Clear table before populating with Filtered Data
   tbody.html("");
