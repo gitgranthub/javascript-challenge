@@ -28,12 +28,10 @@ function initLoad() {
 // Create event handlers 
 // Select the button
 var button = d3.select("#filter-btn");
-
-// New by EJW
-var formEnter = d3.select("#form");
 button.on("click", runEnter);
 
 // New by EJW
+var formEnter = d3.select("#form");
 formEnter.on("submit", runEnter);
 
 // Reset Form **** BUTTON CODE
